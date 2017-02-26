@@ -14,6 +14,7 @@
 
 #include <leveldb/db.h>
 #include <leveldb/write_batch.h>
+#include <leveldb/status.h>
 
 // Class that provides access to a LevelDB. Note that this class is frequently
 // instantiated on the stack and then destroyed again, so instantiation has to
