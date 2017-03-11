@@ -1717,7 +1717,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         nCredit += nReward;
     }
 
-    // Combine dust now comes reward calculation so nReward is considered in value check
+    // Combine dust now comes after reward calculation so nReward is considered in value check
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
     {
         // Attempt to add more inputs
