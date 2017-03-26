@@ -1731,7 +1731,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             if (txNew.vin.size() >= 100)
                 break;
             // Stop adding more inputs if value is already pretty significant 
-            if (nCredit >= (nStakeSplitThreshold * COIN * 2))
+            if (nCredit >= (int64_t)(nStakeSplitThreshold * COIN * 2))
                 break;
             // Stop adding inputs if reached reserve limit
             if (nCredit + pcoin.first->vout[pcoin.second].nValue > nBalance - nReserveBalance)

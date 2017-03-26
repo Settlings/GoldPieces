@@ -100,27 +100,27 @@ public:
 
     CWallet()
     {
+        SetNull();
+    }
+    CWallet(std::string strWalletFileIn)
+    {
+        SetNull();
+        strWalletFile = strWalletFileIn;
+        fFileBacked = true;
+    }
+
+    void SetNull()
+	{
         nWalletVersion = FEATURE_BASE;
         nWalletMaxVersion = FEATURE_BASE;
         fFileBacked = false;
         nMasterKeyMaxID = 0;
         pwalletdbEncryption = NULL;
         nOrderPosNext = 0;
+        nTimeFirstKey = 0;
         fSplitBlock =  false;
-        nStakeSplitThreshold = 6;
-    }
-    CWallet(std::string strWalletFileIn)
-    {
-        nWalletVersion = FEATURE_BASE;
-        nWalletMaxVersion = FEATURE_BASE;
-        strWalletFile = strWalletFileIn;
-        fFileBacked = true;
-        nMasterKeyMaxID = 0;
-        pwalletdbEncryption = NULL;
-        nOrderPosNext = 0;
-        fSplitBlock =  false;
-		nStakeSplitThreshold = 6;
-    }
+        nStakeSplitThreshold = 10;
+	}
 
     std::map<uint256, CWalletTx> mapWallet;
     int64_t nOrderPosNext;
